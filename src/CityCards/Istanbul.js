@@ -15,38 +15,37 @@ const Istanbul = () => {
     const [city, setCity] = useState("");
     const [cityInfo, setCityInfo] = useState([])
     
-    useEffect(() => {
-        axios
-            .get('https://www.metaweather.com/api/location/2344116/')
-            .then((res) => setCity(res.data))
-        axios
-            .get('https://www.metaweather.com/api/location/2344116/')
-            .then((res)=>setCityInfo(res.data.consolidated_weather[0]))
-    }, [city])
+  useEffect(() => {
+    axios
+      .get('https://www.metaweather.com/api/location/2344116/')
+      .then((res) => setCity(res.data))
+    axios
+      .get('https://www.metaweather.com/api/location/2344116/')
+      .then((res) => setCityInfo(res.data.consolidated_weather[0]))
+  }, [city]);
 
     let time = city?.time?.slice(11, 16);
     let day = city?.time?.slice(8, 10);
     let month = city?.time?.slice(5, 7)
     let description = cityInfo?.weather_state_name?.toUpperCase();
-    
-
+  
     const icon = () => {
         switch (description) {
-            case "HEAVY CLOUD": return <img src={heavyCloud} alt="cloudy"/>
-            case "SHOWERS": return <img src={showers} alt="cloudy"/>
-            case "HEAVY RAIN": return <img src={heavyRain} alt="heavy rain"/>
-            case "CLEAR": return <img src={clear} alt="sunny"/>
+          case "HEAVY CLOUD": return <img src={heavyCloud} alt="cloudy"/>
+          case "SHOWERS": return <img src={showers} alt="cloudy"/>
+          case "HEAVY RAIN": return <img src={heavyRain} alt="heavy rain"/>
+          case "CLEAR": return <img src={clear} alt="sunny" />
+          case "LIGHT CLOUD": return <img src={lightCloud} alt="light cloud" />
+          case "LIGHT RAIN": return <img src={lightRain} alt="light rain" />
+          case "SLEET": return <img src={sleet} alt="light rain" />
+          case "HAIL": return <img src={hail} alt="light rain" />
+          case "SNOW": return <img src={snow} alt="light rain" />
+          case "THUNDERSTORM": return <img src={thunderStorm} alt="light rain" />
+          default:
+              break;  
+          
         }
     }
-
-
-
-
-
-
-
-
-
     return (
         <div className="card">
         <div className="date-time">
