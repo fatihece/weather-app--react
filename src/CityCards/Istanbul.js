@@ -29,25 +29,56 @@ const Istanbul = () => {
     let month = city?.time?.slice(5, 7)
     let description = cityInfo?.weather_state_name?.toUpperCase();
   
-    const icon = () => {
+  const icon = () => {
+    const changeBGColor = document.getElementsByClassName("istanbul")[0];
         switch (description) {
-          case "HEAVY CLOUD": return <img src={heavyCloud} alt="cloudy"/>
-          case "SHOWERS": return <img src={showers} alt="cloudy"/>
-          case "HEAVY RAIN": return <img src={heavyRain} alt="heavy rain"/>
-          case "CLEAR": return <img src={clear} alt="sunny" />
-          case "LIGHT CLOUD": return <img src={lightCloud} alt="light cloud" />
-          case "LIGHT RAIN": return <img src={lightRain} alt="light rain" />
-          case "SLEET": return <img src={sleet} alt="light rain" />
-          case "HAIL": return <img src={hail} alt="light rain" />
-          case "SNOW": return <img src={snow} alt="light rain" />
-          case "THUNDERSTORM": return <img src={thunderStorm} alt="light rain" />
+          case "HEAVY CLOUD": return (
+            changeBGColor.style.backgroundColor = "#ccc",
+            <img src={heavyCloud} alt="cloudy" />
+          )
+          case "SHOWERS": return (
+            changeBGColor.style.backgroundColor = "lightblue",
+            <img src={showers} alt="cloudy"/>
+          )
+          case "HEAVY RAIN": return (
+            changeBGColor.style.backgroundColor = "#195Fa5",
+            <img src={heavyRain} alt="heavy rain" />
+          )
+          case "CLEAR": return (
+            changeBGColor.style.backgroundColor = "#EED46D",
+            <img src={clear} alt="sunny" />
+          ) 
+          case "LIGHT CLOUD": return (
+            changeBGColor.style.backgroundColor = "#93A5BD",
+            <img src={lightCloud} alt="light cloud" />
+          ) 
+          case "LIGHT RAIN": return (
+            changeBGColor.style.backgroundColor = "#3498db",
+            <img src={lightRain} alt="light rain" />
+          )
+          case "SLEET": return (
+            changeBGColor.style.backgroundColor = "#ecf0f1", 
+            <img src={sleet} alt="light rain" />
+          )
+          case "HAIL": return (
+            changeBGColor.style.backgroundColor = "#2c3e50", 
+            <img src={hail} alt="light rain" />
+          )
+          case "SNOW": return (
+            changeBGColor.style.backgroundColor = "#70a1ff", 
+            <img src={snow} alt="light rain" />
+          ) 
+          case "THUNDERSTORM": return (
+            changeBGColor.style.backgroundColor = "#1B1464e",
+            <img src={thunderStorm} alt="light rain" />
+          )
           default:
               break;  
           
         }
     }
     return (
-        <div className="card">
+        <div className="card istanbul">
         <div className="date-time">
           <p id="time">{time}</p>  
           <p id="date">{day + " / " + month}</p>
