@@ -1,6 +1,6 @@
 
 import './App.css';
-import CityCards from './CityCards';
+import CityCards from './components/CityCards';
 
 function App() {
   return (
