@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import ".."
+import "./SearchCard.css"
 import axios from "axios";
 
 const SearchCard = () => {
@@ -55,4 +55,4 @@ const SearchCard = () => {
     )
 }
 
-export default 
+export default SearchCard;
